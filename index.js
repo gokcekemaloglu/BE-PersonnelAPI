@@ -43,6 +43,22 @@ app.all('/', (req, res) => {
     })
 })
 
+// Departments
+app.use("/departments", require("./src/routes/department"))
+// Personnels
+app.use("/personnels", require("./src/routes/personnel"))
+
+
+
+// Not Found
+app.use('*', (req, res) => {
+
+    res.status(404).send({
+        error: true,
+        message: "This route is not found !"
+    })
+})
+
 
 // Error Handler:
 app.use(require('./src/middlewares/errorHandler'))

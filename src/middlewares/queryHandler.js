@@ -45,14 +45,18 @@ module.exports = async (req, res, next) => {
     // console.log('skip--', skip)
     // console.log('page--', page)
 
-    res.getModelList = async function (Model, populate = null) {
+    res.getModelList = async function (Model, customFilters = {}, populate = null) {
 
-        return await Model.find({ ...filter, ...search }).sort(sort).limit(limit).skip(skip).populate(populate)
+        const searchAndFilters = { ...filter, ...search, ...customFilters }
+
+        return await Model.find(searchAndFilters).sort(sort).limit(limit).skip(skip).populate(populate)
     }
 
     res.getModelListDetails = async (Model) => {
 
-        const data = Model.find({ ...filter, ...search })
+        const searchAndFilters = { ...filter, ...search, ...customFilters }
+
+        const data = await Model.find(searchAndFilters)
 
         const details = {
             filter: filter,
@@ -75,8 +79,5 @@ module.exports = async (req, res, next) => {
         return details
 
     }
-
-
-
     next()
 }
