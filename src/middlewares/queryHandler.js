@@ -52,7 +52,7 @@ module.exports = async (req, res, next) => {
         return await Model.find(searchAndFilters).sort(sort).limit(limit).skip(skip).populate(populate)
     }
 
-    res.getModelListDetails = async (Model) => {
+    res.getModelListDetails = async (Model, customFilters = {}) => {
 
         const searchAndFilters = { ...filter, ...search, ...customFilters }
 
