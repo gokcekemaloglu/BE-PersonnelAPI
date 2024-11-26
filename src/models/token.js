@@ -10,7 +10,7 @@ const TokenSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: "Personnel",
         required: true,
-        index
+        index: true
     },
     token: {
         type: String,

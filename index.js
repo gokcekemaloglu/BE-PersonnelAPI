@@ -25,7 +25,8 @@ app.use(session({
     secret: process.env.SECRET_KEY,
 }))
 
-
+// Authentication
+app.use(require("./src/middlewares/authentication"))
 
 // Query Handler:
 app.use(require('./src/middlewares/queryHandler'))
@@ -33,11 +34,9 @@ app.use(require('./src/middlewares/queryHandler'))
 // DB connection:
 require('./src/configs/dbConnection')
 
-
 /* ------------------------------------------------------- */
 // Routes:
 app.all('/', (req, res) => {
-
     res.send({
         message: 'WELCOME TO PERSONNEL API',
         isLogin: req.session.id ? true : false,
@@ -47,6 +46,8 @@ app.all('/', (req, res) => {
 
 // Auth
 app.use("/auth",  require("./src/routes/auth"))
+// Token
+app.use("/tokens",  require("./src/routes/token"))
 // Departments
 app.use("/departments", require("./src/routes/department"))
 // Personnels
