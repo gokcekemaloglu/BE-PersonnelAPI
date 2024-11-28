@@ -8,7 +8,8 @@
     "start": "nodemon index.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Gokce",
+  "email": "gokce.kemaloglu@gmail.com",
   "license": "ISC",
   "dependencies": {
     "cookie-session": "^2.1.0",

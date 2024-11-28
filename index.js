@@ -25,18 +25,17 @@ app.use(session({
     secret: process.env.SECRET_KEY,
 }))
 /* ------------------------------------------------------- */
-
+// Documentation
 // LOGGER
 
 app.use(require("./src/middlewares/logger"))
 
     /* ------------------------------------------ */
-
+// Documentation
 // JSON:
 app.use('/documents/json', (req, res) => {
     res.sendFile('swagger.json', { root: '.' })
 })
-
 
 // Swagger
 const swaggerUi = require('swagger-ui-express')

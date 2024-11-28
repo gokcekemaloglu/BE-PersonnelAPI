@@ -5,7 +5,7 @@
     "title": "personel-api",
     "description": "",
     "contact": {
-      "name": "",
+      "name": "Gokce",
       "email": "gokce.kemaloglu@gmail.com"
     },
     "license": {
@@ -704,7 +704,7 @@
             },
             "default": {
               "type": "number",
-              "example": 1732801436800
+              "example": 1732801949688
             }
           }
         }
