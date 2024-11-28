@@ -25,7 +25,7 @@ module.exports = {
                     /* TOKEN */
 
                     let tokenData = await Token.findOne({ userId: user._id })
-                    console.log("TokenData-->",tokenData)                    
+                    // console.log("TokenData-->",tokenData)
 
                     if (!tokenData) {
                         tokenData = await Token.create({

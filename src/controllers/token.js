@@ -7,7 +7,7 @@ const Token = require("../models/token")
 module.exports = {
     list: async (req, res) => {
 
-        const result = await res.getModelList(Token)
+        const result = await res.getModelList(Token, {}, "userId")
 
         res.status(200).send({
             error: false,

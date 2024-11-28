@@ -14,14 +14,13 @@ module.exports = {
         }
     },
     isAdmin: (req, res, next) => {
-        console.log("isAdmin run!")
+        // console.log("isAdmin run!")
         if (req.user && req.user.isActive && req.user.isAdmin) {
             next()
         } else {
             res.errorStatusCode = 403
             throw new Error("No permission: You must login and to be an Admin.")
         }
-        next()
     },
     isAdminOrLead: (req, res, next) => {
         if (req.user && req.user.isActive && (req.user.isAdmin || (req.user.isLead && req.user.departmentId == departmentId))) next()
