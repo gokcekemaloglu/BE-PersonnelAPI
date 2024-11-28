@@ -15,6 +15,10 @@
     "dotenv": "^16.4.5",
     "express": "^4.21.1",
     "express-async-errors": "^3.1.1",
-    "mongoose": "^8.8.0"
+    "mongoose": "^8.8.0",
+    "morgan": "^1.10.0",
+    "redoc-express": "^2.1.0",
+    "swagger-autogen": "^2.23.7",
+    "swagger-ui-express": "^5.0.1"
   }
 }
