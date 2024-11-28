@@ -1,11 +1,10 @@
 "use strict"
-
-const passwordEncrypt = require("../helpers/passwordEncrypt")
-const Personnel = require("../models/personnel")
-
 /* -------------------------------------------------------
 EXPRESS - Personnel API
 ------------------------------------------------------- */
+
+const Personnel = require("../models/personnel")
+const passwordEncrypt = require("../helpers/passwordEncrypt")
 // Token 
 const Token = require("../models/token")
 

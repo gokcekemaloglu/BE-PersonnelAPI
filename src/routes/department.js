@@ -5,16 +5,18 @@ EXPRESS - Personnel API
 const router = require('express').Router()
 /* ------------------------------------------------------- */
 const { list, create, read, update, deleteDepartment, personnels } = require('../controllers/department')
+const { isLogin, isAdmin, isAdminOrLead } = require('../middlewares/permissions')
+
 
 router.route("/")
-    .get(list)
-    .post(create)
+    .get(isLogin, list)
+    .post(isAdmin, create)
 router.route("/:id")
-    .get(read)
-    .put(update)
-    .patch(update)
-    .delete(deleteDepartment)
+    .get(isLogin, read)
+    .put(isAdmin, update)
+    .patch(isAdmin, update)
+    .delete(isAdmin, deleteDepartment)
 
-router.get("/:id/personnels", personnels)
+router.get("/:id/personnels", isAdminOrLead, personnels)
 /* ------------------------------------------------------- */
 module.exports = router

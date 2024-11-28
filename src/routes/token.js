@@ -5,7 +5,8 @@
 const router = require('express').Router()
 /* ------------------------------------------------------- */
 const { list, create, read, update, deleteToken } = require('../controllers/token')
-
+const { isAdmin } = require('../middlewares/permissions')
+router.use(isAdmin) 
 router.route("/")
     .get(list)
     .post(create)

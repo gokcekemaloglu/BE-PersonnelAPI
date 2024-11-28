@@ -6,7 +6,6 @@
 const { Schema, model } = require("mongoose");
 const passwordEncrypt = require('../helpers/passwordEncrypt')
 
-
 const PersonnelSchema = new Schema({
     departmentId: {
         type: Schema.Types.ObjectId,
